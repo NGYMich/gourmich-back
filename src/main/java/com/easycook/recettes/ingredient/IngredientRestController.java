@@ -9,7 +9,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class IngredientRestController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class IngredientRestController {
         List<Ingredient> resource = ingredientService.getIngredients();
         return ResponseEntity.ok(resource);
     }
-    @PostMapping(path = "/ingredients")
+    @PostMapping(path = "/ingredient")
     public ResponseEntity<?> saveIngredient(@RequestBody Ingredient ingredient) {
         log.info("IngredientController: liste ingredients");
         Ingredient resource = ingredientService.saveIngredient(ingredient);
