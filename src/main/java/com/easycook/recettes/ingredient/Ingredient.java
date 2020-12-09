@@ -3,6 +3,8 @@ package com.easycook.recettes.ingredient;
 import com.easycook.recettes.recette.Recette;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 
@@ -17,6 +19,7 @@ public class Ingredient {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "recette_id", referencedColumnName = "recette_id")
     private Recette recette;
     @Column
