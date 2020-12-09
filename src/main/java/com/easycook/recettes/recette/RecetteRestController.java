@@ -65,9 +65,9 @@ public class RecetteRestController {
                 }
             }
 
-            recette.setListe_ingredients(listIngredients);
+            //recette.setListe_ingredients(listIngredients);
             resource = recetteService.saveRecette(recette);
-            // ingredientService.saveIngredient(ingredient);
+            ingredientService.saveIngredient(ingredient);
 
 
         }
