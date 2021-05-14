@@ -23,7 +23,7 @@ public class IngredientRestController {
     }
     @PostMapping(path = "/ingredient")
     public ResponseEntity<?> saveIngredient(@RequestBody Ingredient ingredient) {
-        log.info("IngredientController: liste ingredients");
+        log.info("IngredientController: liste ingredients : " + ingredient);
         Ingredient resource = ingredientService.saveIngredient(ingredient);
         return ResponseEntity.ok(resource);
     }

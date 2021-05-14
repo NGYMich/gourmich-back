@@ -18,7 +18,7 @@ public class Ingredient {
     private Long ingredient_id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "recette_id", referencedColumnName = "recette_id")
     private Recette recette;
