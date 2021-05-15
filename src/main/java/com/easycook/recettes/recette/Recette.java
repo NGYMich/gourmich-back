@@ -51,6 +51,9 @@ public class Recette {
     @Column(name = "nb_personnes")
     private float nb_personnes;
 
+    @Column(name = "difficulte")
+    private String difficulte;
+
 //    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL)
     @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ingredient> liste_ingredients = new ArrayList<Ingredient>();
