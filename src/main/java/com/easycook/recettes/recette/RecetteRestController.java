@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,20 +19,26 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class RecetteRestController {
-    @Autowired
     private final RecetteService recetteService;
-    @Autowired
     private final IngredientService ingredientService;
+    @Autowired
+    public JavaMailSender emailSender;
 
+    @Autowired
     public RecetteRestController(RecetteService recetteService, IngredientService ingredientService) {
         this.recetteService = recetteService;
         this.ingredientService = ingredientService;
     }
 
+
     @GetMapping(path = "/recettes")
     public ResponseEntity<?> listRecettes() {
         log.info("RecetteController: liste recettes");
         List<Recette> listeRecettes = recetteService.getRecettes();
+
+        this.sendRecettesMail(String.valueOf(listeRecettes));
+
+
         return ResponseEntity.ok(listeRecettes);
     }
 
@@ -117,5 +125,23 @@ public class RecetteRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping(path = "/sendMailWithDatabaseRecettes")
+    public ResponseEntity<?> sendMailWithDatabaseRecettes() {
+        log.info("RecetteController: liste recettes");
+        List<Recette> listeRecettes = recetteService.getRecettes();
+        this.sendRecettesMail(String.valueOf(listeRecettes));
+        return ResponseEntity.ok(listeRecettes);
+    }
 
+    public void sendRecettesMail(String listeRecettes) {
+        // Create a Simple MailMessage.
+        SimpleMailMessage message = new SimpleMailMessage();
+
+        message.setTo("uselessjavasender@gmail.com");
+        message.setSubject("test");
+        message.setText(String.valueOf(listeRecettes));
+
+        // Send Message!
+        this.emailSender.send(message);
+    }
 }

@@ -1,6 +1,9 @@
 package com.easycook.recettes.recette;
 
 import com.easycook.recettes.ingredient.Ingredient;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -56,5 +59,16 @@ public class Recette {
     @CollectionTable(name = "etape", joinColumns = @JoinColumn(name = "recette_id"))
     @Column(name="etape")
     private List<String> liste_etapes = new ArrayList<String>();
+
+    public String toString() {
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = "";
+        try {
+            json = ow.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
 
 }
