@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ingredient")
 public class Ingredient {
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
