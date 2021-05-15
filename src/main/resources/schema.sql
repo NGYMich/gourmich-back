@@ -1,4 +1,3 @@
-/*
 CREATE TABLE IF NOT EXISTS RECETTE (
     recette_id SERIAL PRIMARY KEY,
     categorie VARCHAR(150),
@@ -28,12 +27,13 @@ CREATE TABLE IF NOT EXISTS ETAPE(
     etape VARCHAR(500),
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
 );
-*/
+
 
 
 
 /*h2*/
 
+/*
 
 DROP TABLE IF EXISTS RECETTE;
 
@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS INGREDIENT (
     lien_image VARCHAR(500),
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
 );
+*/
 
 CREATE TABLE IF NOT EXISTS ETAPE(
     recette_id INT,
