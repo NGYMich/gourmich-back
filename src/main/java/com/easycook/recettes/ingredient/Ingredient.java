@@ -12,13 +12,14 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ingredient")
 public class Ingredient {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long ingredient_id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "recette_id", referencedColumnName = "recette_id")
     private Recette recette;
