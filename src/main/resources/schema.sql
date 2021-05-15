@@ -1,4 +1,4 @@
-/*CREATE TABLE IF NOT EXISTS RECETTE (
+CREATE TABLE IF NOT EXISTS RECETTE (
     recette_id SERIAL PRIMARY KEY,
     categorie VARCHAR(150),
     auteur VARCHAR(100),
@@ -27,14 +27,14 @@ CREATE TABLE IF NOT EXISTS ETAPE(
     recette_id INT,
     etape VARCHAR(500),
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
-);*/
+);
 
 
 
 
 /*h2*/
 
-
+/*
 DROP TABLE IF EXISTS RECETTE;
 
 CREATE TABLE IF NOT EXISTS RECETTE (
@@ -66,6 +66,6 @@ CREATE TABLE IF NOT EXISTS ETAPE(
     recette_id INT,
     etape VARCHAR(500),
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
-)
+)*/
 
 
