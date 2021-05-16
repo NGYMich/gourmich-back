@@ -11,7 +11,9 @@ CREATE TABLE IF NOT EXISTS RECETTE (
     temps_total VARCHAR(50),
     note VARCHAR(50),
     difficulte VARCHAR(50),
-    nb_personnes FLOAT
+    nb_personnes FLOAT,
+    sous_categorie VARCHAR(50),
+    cout_recette VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS INGREDIENT (
@@ -50,7 +52,9 @@ CREATE TABLE IF NOT EXISTS RECETTE (
     temps_total VARCHAR(50),
     note VARCHAR(50),
     nb_personnes FLOAT,
-    difficulte VARCHAR(50)
+    difficulte VARCHAR(50),
+    sous_categorie VARCHAR(50),
+    cout_recette VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS INGREDIENT (

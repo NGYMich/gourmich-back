@@ -21,6 +21,9 @@ public class Recette {
     @Column(name = "categorie")
     private String categorie;
 
+    @Column(name = "sous_categorie")
+    private String sous_categorie;
+
     @Column(name = "auteur")
     private String auteur;
 
@@ -53,6 +56,10 @@ public class Recette {
 
     @Column(name = "difficulte")
     private String difficulte;
+
+    @Column(name = "cout_recette")
+    private String cout_recette;
+
 
 //    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL) //
     @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL, orphanRemoval = true)
