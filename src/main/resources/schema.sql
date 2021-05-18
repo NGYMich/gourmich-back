@@ -1,4 +1,3 @@
-/*
 CREATE TABLE IF NOT EXISTS RECETTE (
     recette_id SERIAL PRIMARY KEY,
     categorie VARCHAR(150),
@@ -11,7 +10,10 @@ CREATE TABLE IF NOT EXISTS RECETTE (
     temps_cuisson VARCHAR(50),
     temps_total VARCHAR(50),
     note VARCHAR(50),
-    nb_personnes FLOAT
+    difficulte VARCHAR(50),
+    nb_personnes FLOAT,
+    sous_categorie VARCHAR(50),
+    cout_recette VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS INGREDIENT (
@@ -28,13 +30,13 @@ CREATE TABLE IF NOT EXISTS ETAPE(
     etape VARCHAR(500),
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
 );
-*/
+
 
 
 
 /*h2*/
 
-
+/*
 DROP TABLE IF EXISTS RECETTE;
 
 CREATE TABLE IF NOT EXISTS RECETTE (
@@ -49,7 +51,10 @@ CREATE TABLE IF NOT EXISTS RECETTE (
     temps_cuisson VARCHAR(50),
     temps_total VARCHAR(50),
     note VARCHAR(50),
-    nb_personnes FLOAT
+    nb_personnes FLOAT,
+    difficulte VARCHAR(50),
+    sous_categorie VARCHAR(50),
+    cout_recette VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS INGREDIENT (
@@ -65,6 +70,6 @@ CREATE TABLE IF NOT EXISTS ETAPE(
     recette_id INT,
     etape VARCHAR(500),
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
-)
+)*/
 
 

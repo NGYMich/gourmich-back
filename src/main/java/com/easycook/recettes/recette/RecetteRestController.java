@@ -35,10 +35,6 @@ public class RecetteRestController {
     public ResponseEntity<?> listRecettes() {
         log.info("RecetteController: liste recettes");
         List<Recette> listeRecettes = recetteService.getRecettes();
-
-        this.sendRecettesMail(String.valueOf(listeRecettes));
-
-
         return ResponseEntity.ok(listeRecettes);
     }
 
