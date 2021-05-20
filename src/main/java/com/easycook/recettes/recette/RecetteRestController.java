@@ -11,9 +11,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Slf4j
 @RestController
@@ -35,6 +33,7 @@ public class RecetteRestController {
     public ResponseEntity<?> listRecettes() {
         log.info("RecetteController: liste recettes");
         List<Recette> listeRecettes = recetteService.getRecettes();
+        listeRecettes.sort(Comparator.comparing(Recette::getNom));
         return ResponseEntity.ok(listeRecettes);
     }
 
